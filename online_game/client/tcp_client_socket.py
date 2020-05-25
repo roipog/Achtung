@@ -1,13 +1,13 @@
 import socket
 import threading
-from my_constants import *
+from constants import *
 
 
 class ConnectAndSend():
     def __init__(self, game):
         # Connect to the server:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.connect(('127.0.0.1', 12344))
+        self.client_socket.connect((IP, TCP_PORT_NUMBER))
         # Start reading from server in separate thread
         ReadThread(self.client_socket, game).start()
 
