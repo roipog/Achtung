@@ -1,12 +1,13 @@
 import socket               # Import socket module
+from constants import *
 
 
 class ConnectAndSend():
     def __init__(self, id):
         # Connect to the server:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        ip = "127.0.0.1"  # Get local machine name
-        port = 12345 + id  # Reserve a port for your service.
+        ip = IP  # Get local machine name
+        port = UDP_PORT_NUMBER + id  # Reserve a port for your service.
         self.address = (ip, port)
 
     def send(self, request_str):
